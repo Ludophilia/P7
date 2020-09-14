@@ -9,8 +9,10 @@ app.config.from_object("config")
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    form = Form()
-    return render_template("page.html", form=form, api_key = cf.API_KEY)
+
+    return render_template("new_app.html")
+    # form = Form()
+    # return render_template("page.html", form=form, api_key = cf.API_KEY)
 
 @app.route('/grandpy', methods=['GET', 'POST'])
 def test():
