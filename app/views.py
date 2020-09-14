@@ -5,7 +5,7 @@ import config as cf
 #import json
 
 app = Flask("app") #ou __name__ vu que __name__ == "app"
-app.config.from_object("config") 
+# app.config.from_object("config") 
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
