@@ -5,14 +5,18 @@ import config as cf
 #import json
 
 app = Flask("app") #ou __name__ vu que __name__ == "app"
-# app.config.from_object("config") 
+app.config.from_object("config") 
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
 
-    return render_template("new_app.html")
-    # form = Form()
-    # return render_template("page.html", form=form, api_key = cf.API_KEY)
+    form = Form()
+    return render_template("page.html", form=form, api_key = cf.API_KEY)
+
+# @app.route('/newapp', methods=['GET', 'POST'])
+# def new_app():
+
+#     return render_template("new_app.html")
 
 @app.route('/grandpy', methods=['GET', 'POST'])
 def test():
