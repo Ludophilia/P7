@@ -89,15 +89,20 @@ class GrandPy:
         
         for result in r_formatted["results"]:
             if result["name"] == "Openclassrooms": 
-                address = result["formatted_address"].replace(", France", "")
+                address = "10 Cité Paradis, 75010 Paris" #result["formatted_address"].replace(", France", "")
                 return address 
 
     def get_coordinates(self, r_formatted):
         
-        for result in r_formatted["results"]:
-            if result["name"] == "Openclassrooms": 
-                coordinates = result["geometry"]["location"]
-                return coordinates
+        # for result in r_formatted["results"]:
+        #     if result["name"] == "Openclassrooms": 
+        #         coordinates = result["geometry"]["location"]
+        
+        coordinates = {
+            "lat" : 48.8748465,
+            "lng" : 2.3504873
+        }
+        return coordinates
 
     def answer_message(self, string_to_parse):
 
@@ -126,7 +131,7 @@ class GrandPy:
                     maps_info = self.get_maps_info()
                     address = self.get_address(maps_info)
                     json_answer["pi_location"] = self.get_coordinates(maps_info)
-                    grandpy_answer += "Bien sûr mon poussin ! La voici : {}.\n".format(address)
+                    grandpy_answer += "Bien sûr mon poussin ! La voici (en 2019) : {}.\n".format(address)
 
                     anecdocte_complete = self.get_anecdocte(self.get_wiki_info())
                     json_answer["pi_anecdocte"] = anecdocte_complete
